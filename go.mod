@@ -1,4 +1,4 @@
-module github.com/BillSJC/gorm-pageable
+module github.com/FDKevin0/gorm-pageable
 
 go 1.14
 
