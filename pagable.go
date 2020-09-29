@@ -3,7 +3,7 @@ package pageable
 import (
 	"errors"
 	"fmt"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 	"runtime/debug"
 	"time"
 )
@@ -120,7 +120,8 @@ func Use0AsFirstPage() {
 func PageQuery(page int, rawPerPage int, queryHandler *gorm.DB, resultPtr interface{}) (*Response, error) {
 	//recovery
 	defer recovery()
-	count := 0
+	var count64 int64
+	var count = 0
 	// get limit and offSet
 	var limit, offset int
 	if !use0Page {
@@ -129,7 +130,8 @@ func PageQuery(page int, rawPerPage int, queryHandler *gorm.DB, resultPtr interf
 		limit, offset = getLimitOffset(page, rawPerPage)
 	}
 	// get total count of the table
-	queryHandler.Count(&count)
+	queryHandler.Count(&count64)
+	count = int(count64)
 	// get result set by param
 	queryHandler.Limit(limit).Offset(offset).Find(resultPtr)
 	// handle DB error
