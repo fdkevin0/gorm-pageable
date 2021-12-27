@@ -27,8 +27,8 @@ package main
 
 import (
     "fmt"
-    pageable "github.com/BillSJC/gorm-pageable"
-    "github.com/jinzhu/gorm"
+    pageable "github.com/FDKevin0/gorm-pageable"
+    "gorm.io/gorm"
 )
 
 var DB *gorm.DB //your gorm DB connection

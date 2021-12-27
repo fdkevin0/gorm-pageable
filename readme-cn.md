@@ -1,10 +1,10 @@
 # Gorm-Pageable
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/BillSJC/gorm-pageable)](https://goreportcard.com/report/github.com/BillSJC/gorm-pageable)
+[![Go Report Card](https://goreportcard.com/badge/github.com/FDKevin0/gorm-pageable)](https://goreportcard.com/report/github.com/BillSJC/gorm-pageable)
 [![Build Status](https://travis-ci.org/BillSJC/gorm-pageable.svg?branch=master)](https://travis-ci.org/BillSJC/gorm-pageable)
-![Go](https://github.com/BillSJC/gorm-pageable/workflows/Go/badge.svg)
-[![GoDoc](https://godoc.org/github.com/BillSJC/gorm-pageable?status.svg)](https://godoc.org/github.com/BillSJC/gorm-pageable)
-[![codecov](https://codecov.io/gh/BillSJC/gorm-pageable/branch/master/graph/badge.svg)](https://codecov.io/gh/BillSJC/gorm-pageable)
+![Go](https://github.com/FDKevin0/gorm-pageable/workflows/Go/badge.svg)
+[![GoDoc](https://godoc.org/github.com/FDKevin0/gorm-pageable?status.svg)](https://godoc.org/github.com/BillSJC/gorm-pageable)
+[![codecov](https://codecov.io/gh/FDKevin0/gorm-pageable/branch/master/graph/badge.svg)](https://codecov.io/gh/BillSJC/gorm-pageable)
 
 一个快捷的gorm翻页查询器工具
 
@@ -13,7 +13,7 @@
 强烈推荐使用官方包管理 `vgo` 安装
 
 ```go
-import pageable "github.com/BillSJC/gorm-pageable"
+import pageable "github.com/FDKevin0/gorm-pageable"
 ```
 
 ## 使用方法
@@ -25,8 +25,8 @@ package main
 
 import (
     "fmt"
-    pageable "github.com/BillSJC/gorm-pageable"
-    "github.com/jinzhu/gorm"
+    pageable "github.com/FDKevin0/gorm-pageable"
+    "gorm.io/gorm"
 )
 
 var DB *gorm.DB //your gorm DB connection

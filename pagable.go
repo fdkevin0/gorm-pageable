@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// Response: Base response of query
+// Response Base response of query
 type Response struct {
 	PageNow    int         //PageNow: current page of query
 	PageCount  int         //PageCount: total page of the query
@@ -108,7 +108,7 @@ func Use0AsFirstPage() {
 	use0Page = true
 }
 
-// PageQuery:  main handler of query
+// PageQuery  main handler of query
 //
 // page: 1 for the first page
 //
@@ -168,13 +168,13 @@ func PageQuery(page int, rawPerPage int, queryHandler *gorm.DB, resultPtr interf
 	}, nil
 }
 
-// SetHandler: once you want to change the query handler, you can do this to replace it
+// SetHandler once you want to change the query handler, you can do this to replace it
 // 		resp.SetHandler(DB.Model(&User{}).Where(&User{UserName:"john"}))	//set the handler
 func (r *Response) SetHandler(handler *gorm.DB) {
 	r.handler = handler
 }
 
-// GetNextPage: return next page`s Response
+// GetNextPage return next page`s Response
 // 	func getResultSet (page int,rowsPerPage int)(*pageable.Response,error){
 // 	//your empty result set
 // 		resultSet := make([]*User,0,30)
@@ -195,17 +195,17 @@ func (r *Response) GetNextPage() (*Response, error) {
 	return PageQuery(r.PageNow+1, r.RawPerPage, r.handler, r.ResultSet)
 }
 
-// GetNextPage: return last page`s Response
+// GetLastPage return last page`s Response
 func (r *Response) GetLastPage() (*Response, error) {
 	return PageQuery(r.PageNow-1, r.RawPerPage, r.handler, r.ResultSet)
 }
 
-// GetNextPage: return end page`s Response
+// GetEndPage return end page`s Response
 func (r *Response) GetEndPage() (*Response, error) {
 	return PageQuery(r.PageCount, r.RawPerPage, r.handler, r.ResultSet)
 }
 
-// GetFirstPage: return first page`s Response
+// GetFirstPage return first page`s Response
 func (r *Response) GetFirstPage() (*Response, error) {
 	p := 1
 	if use0Page {
